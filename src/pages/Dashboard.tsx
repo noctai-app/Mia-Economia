@@ -270,16 +270,13 @@ const Dashboard = () => {
       value: `R$ ${totalReceitas.toLocaleString("pt-BR", {
         minimumFractionDigits: 2,
       })}`,
-      change: "+12.4%",
+     
       changeType: "positive",
       icon: TrendingUp,
     },
     {
       title: "Despesas do período",
       value: `R$ ${totalDespesas.toLocaleString("pt-BR", {
-        minimumFractionDigits: 2,
-      })}`,
-      subtitle: `Pendente: R$ ${despesasPendentes.toLocaleString("pt-BR", {
         minimumFractionDigits: 2,
       })}`,
       changeType: "neutral",
@@ -290,7 +287,9 @@ const Dashboard = () => {
       value: `R$ ${saldoPeriodo.toLocaleString("pt-BR", {
         minimumFractionDigits: 2,
       })}`,
-      change: "+29.7%",
+      change: saldoPeriodo >= 0 ? "Positivo" : "Negativo",
+      changeType: saldoPeriodo >= 0 ? "positive" : "negative",
+      icon: saldoPeriodo >= 0 ? TrendingUp : TrendingDown,
       changeType: "positive",
       icon: TrendingUp,
     },

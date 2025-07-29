@@ -62,7 +62,7 @@ export const useAuth = () => {
 
     toast({
       title: "Cadastro realizado com sucesso!",
-      description: "Verifique seu email para confirmar a conta.",
+      description: "Faça seu login para continuar.",
     });
 
     return { error: null };
