@@ -93,6 +93,7 @@ const Categorias = () => {
       tipo: novoTipo,
       cor: novaCor,
       icone: "DollarSign",
+      descricao: novaDescricao,
     });
 
     // Limpar formulário
@@ -201,7 +202,7 @@ const Categorias = () => {
             </Button>
             <Button
               onClick={() => setActiveTab("adicionar")}
-              className="bg-purple-500 hover:bg-purple-600 w-full sm:w-auto"
+              className="bg-primary hover:bg-primary/90 w-full sm:w-auto"
             >
               <Plus className="w-4 h-4 mr-2" />
               Nova Categoria
@@ -293,7 +294,7 @@ const Categorias = () => {
                     title="Filtrar por tipo"
                     value={tipoFiltro}
                     onChange={(e) => setTipoFiltro(e.target.value)}
-                    className="w-full sm:w-48 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full sm:w-48 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option value="">Todos os tipos</option>
                     <option value="receita">Receitas</option>
@@ -350,7 +351,7 @@ const Categorias = () => {
                           </span>
                         </TableCell>
                         <TableCell className="text-gray-600">
-                          Sem descrição
+                          {categoria.descricao || "Sem descrição"}
                         </TableCell>
                         <TableCell>
                           <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
@@ -427,7 +428,7 @@ const Categorias = () => {
                               {categoria.nome}
                             </h3>
                             <p className="text-sm text-gray-500">
-                              Sem descrição
+                              {categoria.descricao || "Sem descrição"}
                             </p>
                           </div>
                         </div>
@@ -519,7 +520,7 @@ const Categorias = () => {
                       onChange={(e) =>
                         setNovoTipo(e.target.value as "receita" | "despesa")
                       }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     >
                       <option value="receita">Receita</option>
                       <option value="despesa">Despesa</option>
@@ -566,7 +567,7 @@ const Categorias = () => {
                 <div className="flex flex-col sm:flex-row gap-4 sm:space-x-4">
                   <Button
                     onClick={handleAdicionarCategoria}
-                    className="bg-purple-500 hover:bg-purple-600 w-full sm:w-auto"
+                    className="bg-primary hover:bg-primary/90 w-full sm:w-auto"
                   >
                     Adicionar Categoria
                   </Button>
